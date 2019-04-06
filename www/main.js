@@ -1,32 +1,4 @@
-/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
-
-$(document).ready(()=>{
-    //const list=$
-    const getTodos=()=>{
-        fetch('/getTodos',{method:"get"}).then((response)=>{
-            return response.json();    
-        }).then((data)=>{
-            console.log(data);
-            displayTodos(data);
-        });
-    
-    }
-    getTodos();
-})
-
-
-
-
-
-
-const displayTodos=(data)=>{
-    data.forEach((todo)=>{
-        let ids=buildIDS(todo);
-        display.append(buildTemplate(todo,ids));
-    });
-} */
 
 $(document).ready(function(){
     const getTodos=()=>{
@@ -39,7 +11,23 @@ $(document).ready(function(){
     
     }
     getTodos();
+
+    const postTodos=()=>{
+        fetch('/postTodos',{method:"post"}).then((response)=>{
+            return response.json();    
+        }).then((data)=>{
+            console.log(data);
+            displayTodos(data);
+        });
+    
+    }
+    //postTodos();
  });
+
+
+ 
+
+
 
  function makeTable(container, data) {
     var table = $("<table/>").addClass('CSSTableGenerator');
